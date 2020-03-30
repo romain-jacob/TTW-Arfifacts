@@ -32,7 +32,7 @@ This repository contains all the information required to re-run the data process
 The `ttnet_model_validation.ipynb` notebook summarizes the whole procedure, describes the steps required to do the processing, download the raw data, and produces some visualizations of the processed data.  
 This notebook can be run directly in your web browser [using Binder](https://mybinder.org/) (it may take a few minutes to launch).
 
-[Direct link : ![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=ttnet_model_validation.ipynb)
+[Direct link : ![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2Fttnet-model-validation.ipynb)
 
 ## TTnet model
 
