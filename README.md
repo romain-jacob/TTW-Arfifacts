@@ -1,5 +1,6 @@
 # TTW-Arfifacts
-[__Binder badge__]()
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/romain-jacob/TTW-Arfifacts/master)
 
 This repository describes all the public artifacts related to the Time-Triggered Wireless Architecture project, presented in the following paper:
 
