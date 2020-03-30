@@ -29,7 +29,7 @@ linewidth_px = 512 # https://www.ninjaunits.com/converters/pixels/points-pixels/
 # ==============================================================================
 def plot_inheritance_results():
 
-    df = pd.read_csv('data/inheritance_evaluation.csv', delimiter=',')
+    df = pd.read_csv('data_processed/inheritance_evaluation.csv', delimiter=',')
 
     fig = go.Figure()
 
