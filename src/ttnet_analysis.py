@@ -11,6 +11,7 @@ import plotly.graph_objects as go
 
 import src.colors as colors
 from src.ttnet_model import *
+from src.ttnet_plots import *
 import triscale
 
 # Series list
@@ -164,7 +165,8 @@ def parse_test_series(  series_data,
                         plot=True,
                         plot_save=False,
                         plot_layout={},
-                        verbose=False):
+                        verbose=False,
+                        sample=None):
 
     # Series metadata
     serie               = series_data['label']
@@ -200,7 +202,8 @@ def parse_test_series(  series_data,
                             custom_layout=plot_layout,
                             save=plot_save,
                             plot_path=plot_folder,
-                            prefix=serie+'_')
+                            prefix=serie+'_',
+                            sample=sample)
             return df_all, df_metric
         except FileNotFoundError:
             print('No existing file found. Computing.')

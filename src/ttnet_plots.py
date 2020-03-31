@@ -228,12 +228,25 @@ def plot_round_length():
     return fig
 
 # ==============================================================================
-def plot_series(df, custom_layout={}, save=False, plot_path='.', prefix=''):
+def plot_series(
+        df,
+        custom_layout={},
+        save=False,
+        plot_path='.',
+        prefix='',
+        sample=None
+        ):
 
     Bs = df.B_n_slots.unique()
     Ls = df.L_payload_size.unique()
     Hs = df.H.unique()
     Ns = df.N.unique()
+    if sample is not None:
+        if 'B' in sample:
+            Bs = [sample['B']]
+        if 'L' in sample:
+            Ls = [sample['L']]
+
     for H in Hs:
         for N in Ns:
             for B in Bs:
@@ -253,7 +266,8 @@ def plot_series(df, custom_layout={}, save=False, plot_path='.', prefix=''):
                     fig.update_layout(custom_layout)
                     fig.show()
                     plot_filename = "%sT_round_H%u_N%u_L%u_B%u.pdf" % (prefix,H,N,L,B)
-                    fig.write_image(str(plot_path/plot_filename))
+                    if save:
+                        fig.write_image(str(plot_path/plot_filename))
 
                     print("  T_on_round")
                     x_data = x.T_on_round/1000
@@ -263,7 +277,8 @@ def plot_series(df, custom_layout={}, save=False, plot_path='.', prefix=''):
                     fig.update_layout(custom_layout)
                     fig.show()
                     plot_filename = "%sT_on_round_H%u_N%u_L%u_B%u.pdf" % (prefix,H,N,L,B)
-                    fig.write_image(str(plot_path/plot_filename))
+                    if save:
+                        fig.write_image(str(plot_path/plot_filename))
 
 
 # ==============================================================================
