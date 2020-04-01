@@ -1,6 +1,8 @@
 # TTW Artifacts
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master)
+[![Binder](https://mybinder.org/badge_logo.svg)][ttw_artifact_binder]
+
+[ttw_artifact_binder]: https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master
 
 This repository describes all the public artifacts related to the Time-Triggered Wireless Architecture project, presented in the following paper:
 
@@ -13,12 +15,12 @@ We use the sections of this paper as reference in the rest of this file.
 
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Reproducing the data processing](#reproducing-the-data-processing)
-- [TTnet model](#ttnet-model)
-- [Reproducing the plots](#reproducing-the-plots)
 - [Compile and run TTnet](#compile-and-run-ttnet)
+- [TTnet model](#ttnet-model)
 - [Run the TTW scheduler](#run-the-ttw-scheduler)
-- [Other Related Resources](#other-related-resources)
+- [Reproducing the data processing](#reproducing-the-data-processing)
+- [Reproducing the plots](#reproducing-the-plots)
+- [Other related resources](#other-related-resources)
 
 <!-- /TOC -->
 
@@ -93,10 +95,21 @@ This repository contains all the information required to reproduce all the plots
 + The processed data, located in the `/data_processed` directory. Alternatively, you may re-run the processing from the raw data (see [Reproducing the data processing](#reproducing-the-data-processing)).
 
 The `ttw_plots.ipynb` notebook produces, displays, and (optionally) saves all plots presented in the paper.  
-This notebook can be run directly in your web browser [using Binder](https://mybinder.org/) (it may take a few minutes to launch).
+This notebook can be run directly in your web browser [using Binder](https://mybinder.org/) (it may take a few minutes to launch).  
+Alternatively, you can simply open a static rendering of the notebook.
 
-> [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master) and open the `ttw_plots.ipynb` notebook; or use this
-[direct link.](https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2Fttw_plots.ipynb)
+
+> **Dynamic execution in the browser**  
+[![Binder](https://mybinder.org/badge_logo.svg)][ttw_artifact_binder] and open the `ttw_plots.ipynb` notebook; or use this
+[direct link.][ttw_plot_binder]
+
+> **Static rendering**  
+[![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)][ttw_plot_nbviewer]
+
+<!-- # Links # -->
+[ttw_plot_binder]: https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2Fttw_plots.ipynb
+[ttw_plot_nbviewer]: https://nbviewer.jupyter.org/github/romain-jacob/TTW-Artifacts/blob/master/ttw_plots.ipynb
+<!-- # Links # -->
 
 
 <!-- ############################################### -->
