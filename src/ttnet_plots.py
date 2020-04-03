@@ -162,11 +162,14 @@ def plot_protocol_overhead():
 
 
 # ==============================================================================
-def plot_round_length():
+def plot_round_length(
+        L=16,
+        N=2,
+        Hs=[1,2,4,8],
+        Bs=[1,2,5,10],
+        ):
     # Tround = f(B,H,L=16,N=2)
-    L = 16
-    N = 2
-    H = [1,2,4,8]
+    H = Hs
     B = [
             {'value':1,
              'color':colors.darker_orange, },
@@ -177,6 +180,8 @@ def plot_round_length():
             {'value':10,
              'color':colors.light_orange, },
         ]
+    for i in range(4):
+        B[i]['value']=Bs[i]
 
     fig = go.Figure()
     categories = []
@@ -282,15 +287,58 @@ def plot_series(
 
 
 # ==============================================================================
-def plot_energy_savings(KPIs=None): #df, custom_layout={}, save=False, plot_path='.', prefix=''):
+def plot_energy_savings_model(
+        H=4,
+        N=2,
+        Bs=np.arange(1,35),
+        Ls=[8,16,64]
+        ):
+
+    fig = go.Figure()
+
+    for l in Ls:
+        data = [100*compute_energy_saving(H,N,l,b) for b in Bs]
+        series = go.Scatter(
+            name='L = %sB' % l,
+            x=Bs,
+            y=data,
+            line={'width':3},
+            mode='lines',
+        )
+        fig.add_trace(series)
+
+    # y axis title
+    ytitle = go.layout.Annotation(
+            x=0,
+            y=1.20,
+            xref="paper",
+            yref="paper",
+            text="Energy savings E [%]",
+            showarrow=False,
+            xanchor='left'
+        )
+
+    fig.update_layout(
+        xaxis=dict(
+            title='Number of slots per round B [.]'
+        ),
+        legend=dict(
+            x=0.05,
+            y=1.0,
+            orientation='h'
+        ),
+        annotations=[ytitle],
+    )
+    return fig
+
+# ==============================================================================
+def plot_energy_savings(KPIs=None):
 
     # Plot first the model data
-    B = np.arange(1,35)
     H = 4
     N = 2
+    B = np.arange(1,35)
     L = [
-            # {'value':2,
-            #  'color':colors.darker_orange, },
             {'value':8,
              'color':colors.darker_orange, },
             {'value':16,
@@ -350,7 +398,6 @@ def plot_energy_savings(KPIs=None): #df, custom_layout={}, save=False, plot_path
 
         # Plot the experimental data (KPIs)
         for l in KPIs:
-            # print(L)
             if l['L'] == 8:
                 color = L[0]['color']
             if l['L'] == 16:
@@ -364,7 +411,6 @@ def plot_energy_savings(KPIs=None): #df, custom_layout={}, save=False, plot_path
                 y=l['data']['KPI'],
                 showlegend=False,
                 marker={'color':color,
-                        # 'symbol':'circle-open',
                         'symbol':'diamond-open',
                         'size':8},
                 mode='markers',

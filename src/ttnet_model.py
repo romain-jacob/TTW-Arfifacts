@@ -83,13 +83,18 @@ def compute_T_on_round(H,N,L,B):
     T_on_slot   = compute_T_on_slot(H,N,L)
     return T_on_beacon + B*T_on_slot
 
-def compute_energy_saving(H,N,L,B):
+def compute_T_on_no_round(H,N,L,B):
     '''
-    E = (T^on_no-round - T^on_round) / T^on_no-round
     T^on_no-round(B,L) = B * (T^on_beacon + T^on_slot(L))
     '''
     T_on_beacon   = compute_T_on_beacon(H,N)
     T_on_slot     = compute_T_on_slot(H,N,L)
+    return B*(T_on_slot + T_on_beacon)
+
+def compute_energy_saving(H,N,L,B):
+    '''
+    E = (T^on_no-round - T^on_round) / T^on_no-round
+    '''
     T_on_round    = compute_T_on_round(H,N,L,B)
-    T_on_no_round = B*(T_on_slot + T_on_beacon)
+    T_on_no_round = compute_T_on_no_round(H,N,L,B)
     return (T_on_no_round - T_on_round) / T_on_no_round
