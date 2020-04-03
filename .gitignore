@@ -1,4 +1,5 @@
 /__pycache__/
+/data_raw/
 src/__pycache__/
 /.ipynb_checkpoints/
 helpers.py
