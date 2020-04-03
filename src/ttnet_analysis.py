@@ -152,6 +152,28 @@ def compute_KPIs(
     cols_reorder = [ cols[k] for k in [3,5,7,0,2,4,6,1]]
     df_summary = df_summary[cols_reorder]
 
+    # Print out details
+    if verbose:
+        print('Round lengths')
+
+        for series in KPI_round_values:
+            print(series['L'], series['data']['B'])
+            print(series['data']['test'])
+            print(series['data']['KPI'])
+            print(series['data']['max'])
+            print([compute_T_round(4,2,series['L'],b) for b in [5,10,30]])
+            print()
+
+        print('Energy savings')
+
+        for series in KPI_energy_values:
+            print(series['L'], series['data']['B'])
+            print(series['data']['test'])
+            print(series['data']['KPI'])
+            print(series['data']['max'])
+            print([100*compute_energy_saving(4,2,series['L'],b) for b in [5,10,30]])
+            print()
+
     return KPI_energy_values, KPI_round_values, df_summary
 
 
@@ -171,6 +193,7 @@ def parse_test_series(  series_data,
     # Series metadata
     serie               = series_data['label']
     node_lists          = series_data['node_list']
+    print("Parsing %s ..." % serie)
 
     # Raw data
     raw_data_folder     = Path(raw_data_folder)
@@ -196,7 +219,7 @@ def parse_test_series(  series_data,
             df_all.set_index('test_number', drop=True, inplace=True)
             df_metric = pd.read_csv(metric_file)
             df_metric.set_index('test_number', drop=True, inplace=True)
-            print('%s : Processed data retrieved (not recomputed).' % serie)
+            print('%s : Processed data retrieved (not computed).' % serie)
             if plot:
                 plot_series(df_all,
                             custom_layout=plot_layout,

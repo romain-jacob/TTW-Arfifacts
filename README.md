@@ -46,6 +46,14 @@ This notebook can be run directly in your web browser [using Binder](https://myb
 > [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master) and open the `ttnet_model.ipynb` notebook; or use this
 [direct link.](https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2Fttnet_model.ipynb)
 
+> **Static rendering**  
+[![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)][ttnet_model_nbviewer]
+
+<!-- # Links # -->
+[ttnet_model_binder]: https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2F?filepath=.%2Fttnet_model.ipynb
+[ttnet_model_nbviewer]: https://nbviewer.jupyter.org/github/romain-jacob/TTW-Artifacts/blob/master/?filepath=.%2Fttnet_model.ipynb
+<!-- # Links # -->
+
 <!-- ############################################### -->
 ## Run the TTW scheduler
 <!-- ############################################### -->
@@ -81,8 +89,17 @@ This repository contains all the information required to re-run the data process
 The `ttnet_model_validation.ipynb` notebook summarizes the whole procedure, describes the steps required to do the processing, download the raw data, and produces some visualizations of the processed data.  
 This notebook can be run directly in your web browser [using Binder](https://mybinder.org/) (it may take a few minutes to launch).
 
-> [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master) and open the `ttnet_model_validation.ipynb` notebook; or use this
-[direct link.](https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2Fttnet-model-validation.ipynb)
+> **Dynamic execution in the browser**  
+[![Binder](https://mybinder.org/badge_logo.svg)][ttw_artifact_binder] and open the `ttnet_model_validation.ipynb` notebook; or use this
+[direct link.][ttnet_model_validation_binder]
+
+> **Static rendering**  
+[![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)][ttnet_model_validation_nbviewer]
+
+<!-- # Links # -->
+[ttnet_model_validation_binder]: https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2F?filepath=.%2Fttnet-model-validation.ipynb
+[ttnet_model_validation_nbviewer]: https://nbviewer.jupyter.org/github/romain-jacob/TTW-Artifacts/blob/master/?filepath=.%2Fttnet-model-validation.ipynb
+<!-- # Links # -->
 
 
 <!-- ############################################### -->
