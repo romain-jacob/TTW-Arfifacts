@@ -43,7 +43,8 @@ This repository contains all the information required to use the TTnet time and 
 The `ttnet_model.ipynb` notebook presents the model, illustrates the various functions computing the model equations, and shows some sample plots comparing the effects of different parameter values.  
 This notebook can be run directly in your web browser [using Binder](https://mybinder.org/) (it may take a few minutes to launch).
 
-> [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master) and open the `ttnet_model.ipynb` notebook; or use this
+> **Dynamic execution in the browser**  
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master) and open the `ttnet_model.ipynb` notebook; or use this
 [direct link.](https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2Fttnet_model.ipynb)
 
 > **Static rendering**  
@@ -51,7 +52,7 @@ This notebook can be run directly in your web browser [using Binder](https://myb
 
 <!-- # Links # -->
 [ttnet_model_binder]: https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2F?filepath=.%2Fttnet_model.ipynb
-[ttnet_model_nbviewer]: https://nbviewer.jupyter.org/github/romain-jacob/TTW-Artifacts/blob/master/?filepath=.%2Fttnet_model.ipynb
+[ttnet_model_nbviewer]: https://nbviewer.jupyter.org/github/romain-jacob/TTW-Artifacts/blob/master/ttnet-model.ipynb
 <!-- # Links # -->
 
 <!-- ############################################### -->
@@ -98,7 +99,7 @@ This notebook can be run directly in your web browser [using Binder](https://myb
 
 <!-- # Links # -->
 [ttnet_model_validation_binder]: https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2F?filepath=.%2Fttnet-model-validation.ipynb
-[ttnet_model_validation_nbviewer]: https://nbviewer.jupyter.org/github/romain-jacob/TTW-Artifacts/blob/master/?filepath=.%2Fttnet-model-validation.ipynb
+[ttnet_model_validation_nbviewer]: https://nbviewer.jupyter.org/github/romain-jacob/TTW-Artifacts/blob/master/ttnet-model-validation.ipynb
 <!-- # Links # -->
 
 
