@@ -15,33 +15,13 @@ We use the sections of this paper as reference in the rest of this file.
 
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Compile and run TTnet](#compile-and-run-ttnet)
 - [TTnet model](#ttnet-model)
+- [Compile and run TTnet](#compile-and-run-ttnet)
 - [Run the TTW scheduler](#run-the-ttw-scheduler)
 - [Reproducing the data processing](#reproducing-the-data-processing)
 - [Reproducing the plots](#reproducing-the-plots)
-- [Other related resources](#other-related-resources)
 
 <!-- /TOC -->
-
-<!-- ############################################### -->
-## Compile and run TTnet
-<!-- ############################################### -->
-
-Our TTnet implementation (Section 3.2) is based on [Baloo](https://github.com/ETHZ-TEC/Baloo/tree/master), a design framework for network stacks based on Synchronous Transmissions. Instructions for setting up and running Baloo are described in details in the [Baloo Wiki](https://github.com/ETHZ-TEC/Baloo/wiki).
-The TTnet implementation is located under `examples/baloo-ttnet`. This directory includes a README file that details the build and run commands, as well as information related to the TTnet implementation and how to run it.
-
-Once you have completed the [setup of Baloo's toolchain](https://github.com/ETHZ-TEC/Baloo/wiki#getting-started), you can easily compile and run an example multi-mode TTnet application on the [FlockLab testbed](http://flocklab.ethz.ch/) by running the following commands
-
-```bash
-git clone git@github.com:ETHZ-TEC/Baloo.git
-cd Baloo/examples/baloo-ttnet
-make FLOCKLAB=1 all flocklab_test
-# After the test has been run...
-make flocklab_viz TESTID=<your-test-id>
-```
-
-The firmware uses scheduling tables that are actual outputs from the [TTW Scheduler](#run-the-ttw-scheduler), produced the solving the `simple_example` configuration (see details in the [TTW Scheduler repository][ttw_repo]).
 
 <!-- ############################################### -->
 ## TTnet model
@@ -65,6 +45,25 @@ This notebook can be run directly in your web browser [using Binder](https://myb
 [ttnet_model_binder]: https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2F?filepath=.%2Fttnet_model.ipynb
 [ttnet_model_nbviewer]: https://nbviewer.jupyter.org/github/romain-jacob/TTW-Artifacts/blob/master/ttnet-model.ipynb
 <!-- # Links # -->
+
+<!-- ############################################### -->
+## Compile and run TTnet
+<!-- ############################################### -->
+
+Our TTnet implementation (Section 3.2) is based on [Baloo](https://github.com/ETHZ-TEC/Baloo/tree/master), a design framework for network stacks based on Synchronous Transmissions. Instructions for setting up and running Baloo are described in details in the [Baloo Wiki](https://github.com/ETHZ-TEC/Baloo/wiki).
+The TTnet implementation is located under `examples/baloo-ttnet`. This directory includes a README file that details the build and run commands, as well as information related to the TTnet implementation and how to run it.
+
+Once you have completed the [setup of Baloo's toolchain](https://github.com/ETHZ-TEC/Baloo/wiki#getting-started), you can easily compile and run an example multi-mode TTnet application on the [FlockLab testbed](http://flocklab.ethz.ch/) by running the following commands
+
+```bash
+git clone git@github.com:ETHZ-TEC/Baloo.git
+cd Baloo/examples/baloo-ttnet
+make FLOCKLAB=1 all flocklab_test
+# After the test has been run...
+make flocklab_viz TESTID=<your-test-id>
+```
+
+The firmware uses scheduling tables that are actual outputs from the [TTW Scheduler](#run-the-ttw-scheduler), produced the solving the `simple_example` configuration (see details in the [TTW Scheduler repository][ttw_repo]).
 
 <!-- ############################################### -->
 ## Run the TTW scheduler
@@ -141,9 +140,9 @@ Alternatively, you can simply open a static rendering of the notebook.
 <!-- # Links # -->
 
 
-<!-- ############################################### -->
-## Other related resources
-<!-- ############################################### -->
+<!-- ############################################### -- >
+<!-- ## Other related resources -->
+<!-- ############################################### -- >
 + TTW poster
 + Previous paper (DATE)
-+ Thesis chapter
++ Thesis chapter -->
