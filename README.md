@@ -29,8 +29,19 @@ We use the sections of this paper as reference in the rest of this file.
 <!-- ############################################### -->
 
 Our TTnet implementation (Section 3.2) is based on [Baloo](https://github.com/ETHZ-TEC/Baloo/tree/master), a design framework for network stacks based on Synchronous Transmissions. Instructions for setting up and running Baloo are described in details in the [Baloo Wiki](https://github.com/ETHZ-TEC/Baloo/wiki).
+The TTnet implementation is located under `examples/baloo-ttnet`. This directory includes a README file that details the build and run commands, as well as information related to the TTnet implementation and how to run it.
 
-The TTnet implementation is located under `examples/baloo-ttnet`. This directory includes a README file that details the build and run commands, as well as information related to the TTnet implementation, how to configure it, and how to use it.
+Once you have completed the [setup of Baloo's toolchain](https://github.com/ETHZ-TEC/Baloo/wiki#getting-started), you can easily compile and run an example multi-mode TTnet application on the [FlockLab testbed](http://flocklab.ethz.ch/) by running the following commands
+
+```bash
+git clone git@github.com:ETHZ-TEC/Baloo.git
+cd Baloo/examples/baloo-ttnet
+make FLOCKLAB=1 all flocklab_test
+# After the test has been run...
+make flocklab_viz TESTID=<your-test-id>
+```
+
+The firmware uses scheduling tables that are actual outputs from the [TTW Scheduler](#run-the-ttw-scheduler), produced the solving the `simple_example` configuration (see details in the [TTW Scheduler repository][ttw_repo]).
 
 <!-- ############################################### -->
 ## TTnet model
