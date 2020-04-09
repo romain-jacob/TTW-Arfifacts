@@ -57,11 +57,11 @@ def compute_T_slot(H,N,L):
 
 def compute_T_round(H,N,L,B):
     '''
-    T_round(B,L) = T_guard + T_preprocess + T_beacon + T_gap_control + B*T_slot(L) + (B-1)* T_gap + T_round_end
+    T_round(B,L) = T_preprocess + T_beacon + T_gap_control + B*T_slot(L) + (B-1)* T_gap + T_round_end
     '''
     T_beacon = compute_T_beacon(H,N)
     T_slot   = compute_T_slot(H,N,L)
-    return T_guard + T_preprocess + T_beacon + T_gap_control + B*T_slot + (B-1)* T_gap + T_round_end
+    return T_preprocess + T_beacon + T_gap_control + B*T_slot + (B-1)* T_gap + T_round_end
 
 def compute_T_on_beacon(H,N):
     '''
