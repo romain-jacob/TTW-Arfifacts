@@ -34,14 +34,17 @@ The `ttnet_model.ipynb` notebook presents the model, illustrates the various fun
 This notebook can be run directly in your web browser [using Binder](https://mybinder.org/) (it may take a few minutes to launch).
 
 > **Dynamic execution in the browser**  
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master) and open the `ttnet_model.ipynb` notebook; or use this
-[direct link.](https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2Fttnet_model.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)  
+Run `ttnet_model.ipynb` in Binder.][ttnet_model_binder]
 
 > **Static rendering**  
-[![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)][ttnet_model_nbviewer]
+[![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)  
+Visualize `ttnet_model.ipynb` with nbviewer.][ttnet_model_nbviewer]
+
+
 
 <!-- # Links # -->
-[ttnet_model_binder]: https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2F?filepath=.%2Fttnet_model.ipynb
+[ttnet_model_binder]: https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2Fttnet_model.ipynb
 [ttnet_model_nbviewer]: https://nbviewer.jupyter.org/github/romain-jacob/TTW-Artifacts/blob/master/ttnet_model.ipynb
 <!-- # Links # -->
 
@@ -100,17 +103,26 @@ The `ttnet_model_validation.ipynb` notebook summarizes the whole procedure, desc
 This notebook can be run directly in your web browser [using Binder](https://mybinder.org/) (it may take a few minutes to launch).
 
 > **Dynamic execution in the browser**  
-[![Binder](https://mybinder.org/badge_logo.svg)][ttw_artifact_binder] and open the `ttnet_model_validation.ipynb` notebook; or use this
-[direct link.][ttnet_model_validation_binder]
+[![Binder](https://mybinder.org/badge_logo.svg)  
+Run `ttnet_model_validation.ipynb` in Binder.][ttnet_model_validation_binder]
 
 > **Static rendering**  
-[![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)][ttnet_model_validation_nbviewer]
+[![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)  
+Visualize `ttnet_model-validation.ipynb` with nbviewer.][ttnet_model_validation_nbviewer]
 
 <!-- # Links # -->
-[ttnet_model_validation_binder]: https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2F?filepath=.%2Fttnet_model-validation.ipynb
+[ttnet_model_validation_binder]: https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2Fttnet_model-validation.ipynb
 [ttnet_model_validation_nbviewer]: https://nbviewer.jupyter.org/github/romain-jacob/TTW-Artifacts/blob/master/ttnet_model-validation.ipynb
 <!-- # Links # -->
 
+<!-- [![Binder](https://mybinder.org/badge_logo.svg)][ttw_artifact_binder] and open the `ttnet_model_validation.ipynb` notebook; or use this
+[direct link.][ttnet_model_validation_binder]
+
+
+[![Binder](https://mybinder.org/badge_logo.svg)][ttw_artifact_binder] and open the `ttnet_model_validation.ipynb` notebook;
+
+or use this
+-->
 
 <!-- ############################################### -->
 ## Reproducing the plots
@@ -125,13 +137,15 @@ The `ttw_plots.ipynb` notebook produces, displays, and (optionally) saves all pl
 This notebook can be run directly in your web browser [using Binder](https://mybinder.org/) (it may take a few minutes to launch).  
 Alternatively, you can simply open a static rendering of the notebook.
 
-
 > **Dynamic execution in the browser**  
-[![Binder](https://mybinder.org/badge_logo.svg)][ttw_artifact_binder] and open the `ttw_plots.ipynb` notebook; or use this
-[direct link.][ttw_plot_binder]
+[![Binder](https://mybinder.org/badge_logo.svg)  
+Run `ttw_plots.ipynb` in Binder.][ttw_plot_binder]
 
 > **Static rendering**  
-[![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)][ttw_plot_nbviewer]
+[![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)  
+Visualize `ttw_plots.ipynb` with nbviewer.][ttw_plot_nbviewer]
+
+
 
 <!-- # Links # -->
 [ttw_plot_binder]: https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2Fttw_plots.ipynb
