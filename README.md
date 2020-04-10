@@ -4,14 +4,13 @@
 
 [ttw_artifact_binder]: https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master
 
-This repository describes all the public artifacts related to the Time-Triggered Wireless Architecture project, presented in the following paper:
+
+This repository describes all the public artifacts related to the Time-Triggered Wireless Architecture project, presented in the following paper. This paper serves as reference for the sections mentioned in this file.
 
 > **Time-Triggered Wireless Architecture**  
 Romain Jacob, Licong Zhang, Marco Zimmerling, Samarjit Chakraborty, Lothar Thiele   
 Accepted to ECRTS 2020  
 [arXiv (submitted version)](https://arxiv.org/abs/2002.07491)
-
-We use the sections of this paper as reference in the rest of this file.
 
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
@@ -43,14 +42,14 @@ This notebook can be run directly in your web browser [using Binder](https://myb
 
 <!-- # Links # -->
 [ttnet_model_binder]: https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2F?filepath=.%2Fttnet_model.ipynb
-[ttnet_model_nbviewer]: https://nbviewer.jupyter.org/github/romain-jacob/TTW-Artifacts/blob/master/ttnet-model.ipynb
+[ttnet_model_nbviewer]: https://nbviewer.jupyter.org/github/romain-jacob/TTW-Artifacts/blob/master/ttnet_model.ipynb
 <!-- # Links # -->
 
 <!-- ############################################### -->
 ## Compile and run TTnet
 <!-- ############################################### -->
 
-Our TTnet implementation (Section 3.2) is based on [Baloo](https://github.com/ETHZ-TEC/Baloo/tree/master), a design framework for network stacks based on Synchronous Transmissions. Instructions for setting up and running Baloo are described in details in the [Baloo Wiki](https://github.com/ETHZ-TEC/Baloo/wiki).
+Our TTnet implementation (Section 3.2) is based on [Baloo](https://github.com/ETHZ-TEC/Baloo/tree/master), a design framework for network stacks based on synchronous transmissions. Instructions for setting up and running Baloo are described in details in the [Baloo Wiki](https://github.com/ETHZ-TEC/Baloo/wiki).
 The TTnet implementation is located under `examples/baloo-ttnet`. This directory includes a README file that details the build and run commands, as well as information related to the TTnet implementation and how to run it.
 
 Once you have completed the [setup of Baloo's toolchain](https://github.com/ETHZ-TEC/Baloo/wiki#getting-started), you can easily compile and run an example multi-mode TTnet application on the [FlockLab testbed](http://flocklab.ethz.ch/) by running the following commands
@@ -69,7 +68,7 @@ The firmware uses scheduling tables that are actual outputs from the [TTW Schedu
 ## Run the TTW scheduler
 <!-- ############################################### -->
 
-Our implementation of the TTW Scheduler (Section 4) is located in its own GitHub repository:
+Our implementation of the TTW Scheduler (Section 4) is located in its own GitHub repository
 + [GitHub repo: romain-jacob/TTW-Scheduler][ttw_repo]
 + [Zenodo archive: ![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3530665.svg)][ttw_zenodo]
 
@@ -108,8 +107,8 @@ This notebook can be run directly in your web browser [using Binder](https://myb
 [![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)][ttnet_model_validation_nbviewer]
 
 <!-- # Links # -->
-[ttnet_model_validation_binder]: https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2F?filepath=.%2Fttnet-model-validation.ipynb
-[ttnet_model_validation_nbviewer]: https://nbviewer.jupyter.org/github/romain-jacob/TTW-Artifacts/blob/master/ttnet-model-validation.ipynb
+[ttnet_model_validation_binder]: https://mybinder.org/v2/gh/romain-jacob/TTW-Artifacts/master?filepath=.%2F?filepath=.%2Fttnet_model-validation.ipynb
+[ttnet_model_validation_nbviewer]: https://nbviewer.jupyter.org/github/romain-jacob/TTW-Artifacts/blob/master/ttnet_model-validation.ipynb
 <!-- # Links # -->
 
 

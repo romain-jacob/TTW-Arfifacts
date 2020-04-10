@@ -1,5 +1,8 @@
 """
 Plotting functions related to the Time-Triggered Wireless project.
+
+@author: Romain Jacob
+@date: 10.04.2020
 """
 
 import os
@@ -22,9 +25,6 @@ serie_2 = {'label' : 'serie2',
 serie_3 = {'label' : 'serie3',
            'node_list' : [1, 2, 3, 4, 6, 8, 10, 11, 13, 15, 16, 17,
                           18, 19, 20, 22, 23, 24, 25, 26, 27, 28, 31, 32, 33]}
-
-linewidth_pt = 384
-linewidth_px = 512 # https://www.ninjaunits.com/converters/pixels/points-pixels/
 
 # ==============================================================================
 def plot_inheritance_results():
@@ -95,7 +95,12 @@ def plot_inheritance_results():
 
 # ==============================================================================
 def plot_protocol_overhead():
-    # Tround = f(B,H,L=16,N=2)
+    '''
+    L: message payload size (in bytes)
+    B: maximal number of slots per round
+    N: number of message transmissions in a Glossy flood
+    H: estimated network diameter (in number of hops)
+    '''
     L = 16
     N = 2
     H = [1,2,4,8]
@@ -168,6 +173,12 @@ def plot_round_length(
         Hs=[1,2,4,8],
         Bs=[1,2,5,10],
         ):
+    '''
+    L: message payload size (in bytes)
+    B: maximal number of slots per round
+    N: number of message transmissions in a Glossy flood
+    H: estimated network diameter (in number of hops)
+    '''
     # Tround = f(B,H,L=16,N=2)
     H = Hs
     B = [
@@ -293,6 +304,12 @@ def plot_energy_savings_model(
         Bs=np.arange(1,35),
         Ls=[8,16,64]
         ):
+    '''
+    L: message payload size (in bytes)
+    B: maximal number of slots per round
+    N: number of message transmissions in a Glossy flood
+    H: estimated network diameter (in number of hops)
+    '''
 
     fig = go.Figure()
 

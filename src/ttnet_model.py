@@ -1,8 +1,10 @@
 '''
 Parameters for the TTW time and energy model
 Glossy values from the DPP2-cc430 implementation
+(https://github.com/ETHZ-TEC/LWB/blob/dpp/mcu/cc430/glossy.c)
 
-See `numericalModel_TTW.xslx` for details
+@author: Romain Jacob
+@date: 10.04.2020
 '''
 
 import math
@@ -65,19 +67,19 @@ def compute_T_round(H,N,L,B):
 
 def compute_T_on_beacon(H,N):
     '''
-    T^on_beacon = T_start_slot + T_guard + (H + 2*N -1) * (T_d + T_cal + T_header + 8*L_beacon/Rbits)
+    T_on_beacon = T_start_slot + T_guard + (H + 2*N -1) * (T_d + T_cal + T_header + 8*L_beacon/Rbits)
     '''
     return Tstart_slot + T_guard + (H + 2*N -1) * (Td + Tcal + Theader + 8*L_beacon/Rbits)
 
 def compute_T_on_slot(H,N,L):
     '''
-    T^on_slot(L) = T_start_slot + T_guard + (H + 2*N -1) * (T_d + T_cal + T_header + 8*L/Rbits)
+    T_on_slot(L) = T_start_slot + T_guard + (H + 2*N -1) * (T_d + T_cal + T_header + 8*L/Rbits)
     '''
     return Tstart_slot + T_guard + (H + 2*N -1) * (Td + Tcal + Theader + 8*L/Rbits)
 
 def compute_T_on_round(H,N,L,B):
     '''
-    T^on_round = T^on_beacon + B*T^on_slot(L)
+    T_on_round = T_on_beacon + B*T_on_slot(L)
     '''
     T_on_beacon = compute_T_on_beacon(H,N)
     T_on_slot   = compute_T_on_slot(H,N,L)
@@ -85,7 +87,7 @@ def compute_T_on_round(H,N,L,B):
 
 def compute_T_on_no_round(H,N,L,B):
     '''
-    T^on_no-round(B,L) = B * (T^on_beacon + T^on_slot(L))
+    T_on_no-round(B,L) = B * (T_on_beacon + T_on_slot(L))
     '''
     T_on_beacon   = compute_T_on_beacon(H,N)
     T_on_slot     = compute_T_on_slot(H,N,L)
@@ -93,7 +95,7 @@ def compute_T_on_no_round(H,N,L,B):
 
 def compute_energy_saving(H,N,L,B):
     '''
-    E = (T^on_no-round - T^on_round) / T^on_no-round
+    E = (T_on_no-round - T_on_round) / T_on_no-round
     '''
     T_on_round    = compute_T_on_round(H,N,L,B)
     T_on_no_round = compute_T_on_no_round(H,N,L,B)

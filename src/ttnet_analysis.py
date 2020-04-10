@@ -1,5 +1,8 @@
 """
 Analysis functions related to the Time-Triggered Wireless project.
+
+@author: Romain Jacob
+@date: 10.04.2020
 """
 
 import os
@@ -123,6 +126,7 @@ def compute_KPIs(
                     tmp_rd_column.append(round(KPI_value/1000,2))
 
 
+            ## Store KPI values under two different format for later processing/displaying
             # Store the KPI values (1)
             KPI_energy_values.append({  'series':serie_id['label'],
                                         'L':L,
@@ -267,9 +271,6 @@ def parse_test_series(  series_data,
         n_slots = df_current.at[0,"B_n_slots"]
         rand_seed = df_current.at[0,"R_random_seed"]
         date_time = df_current.at[0,"date_time"]
-
-        # # Add new test to the date frame
-        # df = pd.concat([df, df_current], sort=False)
 
         # Open the test serial log
         f = open( str(data_folder / test_folder / "serial.csv"), "r")
