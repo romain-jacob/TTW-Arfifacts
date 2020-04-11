@@ -37,13 +37,13 @@ def plot_inheritance_results():
             {'value':0,},
             {'value':1,
              'name':'No inheritance',
-             'color':colors.light_orange, },
+             'color':colors.accent[0]['light'], },
             {'value':2,
              'name':'Minimal inheritance',
-             'color':colors.orange, },
+             'color':colors.accent[0]['normal'], },
             {'value':3,
              'name':'Full inheritance',
-             'color':colors.dark_orange, },
+             'color':colors.accent[0]['dark'], },
         ]
 
     for inheritance in df.inheritance_type.unique():
@@ -106,13 +106,13 @@ def plot_protocol_overhead():
     H = [1,2,4,8]
     B = [
             {'value':1,
-             'color':colors.darker_orange, },
+             'color':colors.accent[0]['darker'], },
             {'value':2,
-             'color':colors.dark_orange, },
+             'color':colors.accent[0]['dark'], },
             {'value':5,
-             'color':colors.orange, },
+             'color':colors.accent[0]['normal'], },
             {'value':10,
-             'color':colors.light_orange, },
+             'color':colors.accent[0]['light'], },
         ]
 
     fig = go.Figure()
@@ -183,13 +183,13 @@ def plot_round_length(
     H = Hs
     B = [
             {'value':1,
-             'color':colors.darker_orange, },
+             'color':colors.accent[0]['darker'], },
             {'value':2,
-             'color':colors.dark_orange, },
+             'color':colors.accent[0]['dark'], },
             {'value':5,
-             'color':colors.orange, },
+             'color':colors.accent[0]['normal'], },
             {'value':10,
-             'color':colors.light_orange, },
+             'color':colors.accent[0]['light'], },
         ]
     for i in range(4):
         B[i]['value']=Bs[i]
@@ -357,11 +357,11 @@ def plot_energy_savings(KPIs=None):
     B = np.arange(1,35)
     L = [
             {'value':8,
-             'color':colors.darker_orange, },
+             'color':colors.accent[0]['darker'], },
             {'value':16,
-             'color':colors.dark_orange, },
+             'color':colors.accent[0]['dark'], },
             {'value':64,
-             'color':colors.orange, },
+             'color':colors.accent[0]['normal'], },
         ]
 
     fig = go.Figure()
@@ -454,7 +454,7 @@ def TTW_hist(x, KPI, max_model):
             x=x,
             histnorm='percent',
             # nbinsx=50,
-            marker_color=colors.light_orange,
+            marker_color=colors.accent[0]['normal'],
         )
     )
 

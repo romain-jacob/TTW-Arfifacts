@@ -77,10 +77,16 @@ Our implementation of the TTW Scheduler (Section 4) is located in its own GitHub
 
 The scheduler is implemented in [Matlab][1] and uses [Gurobi][2] to solve the MILP formulation. The [TTW Scheduler repository][ttw_repo] contains detailed information allowing to
 + Setup Matlab and Gurobi
-+ Formulate a scheduling problem (eg, how to specify applications, modes, etc.)
 + Reproduce the evaluation of TTW minimal inheritance approach (Section 5.2)
++ Formulate your own scheduling problem (eg, how to specify applications, modes, etc.)
 
-> Although Matlab and Gurobi are both commercial software (which is not ideal), free academic and/or student licenses are currently available from the software vendors.
+> **/!\ ---- Beware ---- /!\**  
+While preparing for the release of these software, we noticed differences in the schedules produced by the Gurobi solver, depending on the version.  
+To guarantee the reproducibility of the results from the evaluation of TTW minimal inheritance approach, you should use the following software versions (tested on Ubuntu 18.04 LTS)
++ Matlab 2019b (64-bit)
++ Gurobi 9.0.1
+
+Although Matlab and Gurobi are both commercial software (which is not ideal), free academic and/or student licenses are currently available from the software vendors.
 
 [1]: https://www.mathworks.com/products/matlab.html
 [2]: https://www.gurobi.com/
