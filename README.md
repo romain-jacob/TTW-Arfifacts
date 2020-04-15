@@ -80,7 +80,7 @@ The scheduler is implemented in [Matlab][1] and uses [Gurobi][2] to solve the MI
 + Reproduce the evaluation of TTW minimal inheritance approach (Section 5.2)
 + Formulate your own scheduling problem by specifying applications, modes, etc.
 
-> **/!\ ---- Beware ---- /!\**  
+> **--- /!\ --- Beware --- /!\ ---**  
 While preparing for the release of these software, we noticed differences in the schedules produced by the Gurobi solver, depending on the version.  
 To guarantee the reproducibility of the results from the evaluation of TTW minimal inheritance approach, you should use the following software versions (tested on Ubuntu 18.04 LTS)
 + Matlab 2019b (64-bit)
