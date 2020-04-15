@@ -26,12 +26,12 @@ Accepted to ECRTS 2020
 ## TTnet model
 <!-- ############################################### -->
 
-This repository contains all the information required to use the TTnet time and energy model (Section 3.3). This requires
+This repository contains all the information required to use the TTnet time and energy models (Section 3.3). This requires
 + The `/src` directory, which includes the Python source code
 + The Python modules listed in the `requirements.txt` file
 
-The `ttnet_model.ipynb` notebook presents the model, illustrates the various functions computing the model equations, and shows some sample plots comparing the effects of different parameter values.  
-This notebook can be run directly in your web browser [using Binder](https://mybinder.org/) (it may take a few minutes to launch).
+The `ttnet_model.ipynb` notebook presents the model, illustrates the various functions computing the model equations, and shows some sample plots comparing the effects of different parameter values. This notebook can be run in two ways:
+<!-- This notebook can be run directly in your web browser [using Binder](https://mybinder.org/) (it may take a few minutes to launch). -->
 
 > **Dynamic execution in the browser**  
 [![Binder](https://mybinder.org/badge_logo.svg)  
@@ -52,7 +52,7 @@ Visualize `ttnet_model.ipynb` with nbviewer.][ttnet_model_nbviewer]
 ## Compile and run TTnet
 <!-- ############################################### -->
 
-Our TTnet implementation (Section 3.2) is based on [Baloo](https://github.com/ETHZ-TEC/Baloo/tree/master), a design framework for network stacks based on synchronous transmissions. Instructions for setting up and running Baloo are described in details in the [Baloo Wiki](https://github.com/ETHZ-TEC/Baloo/wiki).
+Our TTnet implementation (Section 3.2) is based on [Baloo](https://github.com/ETHZ-TEC/Baloo/tree/master), a design framework for network stacks based on synchronous transmissions. Instructions for setting up and running Baloo are described in detail in the [Baloo Wiki](https://github.com/ETHZ-TEC/Baloo/wiki).
 The TTnet implementation is located under `examples/baloo-ttnet`. This directory includes a README file that details the build and run commands, as well as information related to the TTnet implementation and how to run it.
 
 Once you have completed the [setup of Baloo's toolchain](https://github.com/ETHZ-TEC/Baloo/wiki#getting-started), you can easily compile and run an example multi-mode TTnet application on the [FlockLab testbed](http://flocklab.ethz.ch/) by running the following commands
@@ -65,7 +65,7 @@ make FLOCKLAB=1 all flocklab_test
 make flocklab_viz TESTID=<your-test-id>
 ```
 
-The firmware uses scheduling tables that are actual outputs from the [TTW Scheduler](#run-the-ttw-scheduler), produced the solving the `simple_example` configuration (see details in the [TTW Scheduler repository][ttw_repo]).
+The firmware uses scheduling tables that are actual outputs from the [TTW Scheduler](#run-the-ttw-scheduler), which are produced by solving the `simple_example` configuration (see details in the [TTW Scheduler repository][ttw_repo]).
 
 <!-- ############################################### -->
 ## Run the TTW scheduler
@@ -78,7 +78,7 @@ Our implementation of the TTW Scheduler (Section 4) is located in its own GitHub
 The scheduler is implemented in [Matlab][1] and uses [Gurobi][2] to solve the MILP formulation. The [TTW Scheduler repository][ttw_repo] contains detailed information allowing to
 + Setup Matlab and Gurobi
 + Reproduce the evaluation of TTW minimal inheritance approach (Section 5.2)
-+ Formulate your own scheduling problem (eg, how to specify applications, modes, etc.)
++ Formulate your own scheduling problem by specifying applications, modes, etc.
 
 > **/!\ ---- Beware ---- /!\**  
 While preparing for the release of these software, we noticed differences in the schedules produced by the Gurobi solver, depending on the version.  
@@ -103,10 +103,10 @@ Although Matlab and Gurobi are both commercial software (which is not ideal), fr
 This repository contains all the information required to re-run the data processing for the TTnet validation experiments (Section 5.1). This requires
 + The `/src` directory, which includes the Python source code
 + The Python modules listed in the `requirements.txt` file
-+ The raw data raw data from the FlockLab experiments (one .zip of ~70Mb), which is available [on Zenodo](https://doi.org/10.5281/zenodo.3530721) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3530721.svg)](https://doi.org/10.5281/zenodo.3530721)
++ The raw data from the FlockLab experiments (one .zip of ~70Mb), which is available [on Zenodo](https://doi.org/10.5281/zenodo.3530721) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3530721.svg)](https://doi.org/10.5281/zenodo.3530721)
 
-The `ttnet_model_validation.ipynb` notebook summarizes the whole procedure, describes the steps required to do the processing, download the raw data, and produces some visualizations of the processed data.  
-This notebook can be run directly in your web browser [using Binder](https://mybinder.org/) (it may take a few minutes to launch).
+The `ttnet_model_validation.ipynb` notebook summarizes the whole procedure, describes the steps required to do the processing, downloads the raw data, and produces some visualizations of the processed data. This notebook can be run in two ways:
+<!-- This notebook can be run directly in your web browser [using Binder](https://mybinder.org/) (it may take a few minutes to launch). -->
 
 > **Dynamic execution in the browser**  
 [![Binder](https://mybinder.org/badge_logo.svg)  
@@ -139,9 +139,9 @@ This repository contains all the information required to reproduce all the plots
 + The Python modules listed in the `requirements.txt` file
 + The processed data, located in the `/data_processed` directory. Alternatively, you may re-run the processing from the raw data (see [Reproducing the data processing](#reproducing-the-data-processing)).
 
-The `ttw_plots.ipynb` notebook produces, displays, and (optionally) saves all plots presented in the paper.  
-This notebook can be run directly in your web browser [using Binder](https://mybinder.org/) (it may take a few minutes to launch).  
-Alternatively, you can simply open a static rendering of the notebook.
+The `ttw_plots.ipynb` notebook produces, displays, and (optionally) saves all plots presented in the paper. It can be run in one of two ways:
+<!-- This notebook can be run directly in your web browser [using Binder](https://mybinder.org/) (it may take a few minutes to launch).  
+Alternatively, you can simply open a static rendering of the notebook. -->
 
 > **Dynamic execution in the browser**  
 [![Binder](https://mybinder.org/badge_logo.svg)  
