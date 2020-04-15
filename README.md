@@ -53,7 +53,7 @@ Visualize `ttnet_model.ipynb` with nbviewer.][ttnet_model_nbviewer]
 <!-- ############################################### -->
 
 Our TTnet implementation (Section 3.2) is based on [Baloo](https://github.com/ETHZ-TEC/Baloo/tree/master), a design framework for network stacks based on synchronous transmissions. Instructions for setting up and running Baloo are described in detail in the [Baloo Wiki](https://github.com/ETHZ-TEC/Baloo/wiki).
-The TTnet implementation is located under `examples/baloo-ttnet`. This directory includes a README file that details the build and run commands, as well as information related to the TTnet implementation and how to run it.
+The TTnet implementation is located under [`examples/baloo-ttnet`](https://github.com/ETHZ-TEC/Baloo/tree/master/examples/baloo-ttnet). This directory includes a README file that details the build and run commands, as well as information related to the TTnet implementation and how to run it.
 
 Once you have completed the [setup of Baloo's toolchain](https://github.com/ETHZ-TEC/Baloo/wiki#getting-started), you can easily compile and run an example multi-mode TTnet application on the [FlockLab testbed](http://flocklab.ethz.ch/) by running the following commands
 
