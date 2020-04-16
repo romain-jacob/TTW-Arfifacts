@@ -217,6 +217,9 @@ def parse_test_series(  series_data,
     plot_folder         = Path("plots")
     plot_folder         = plot_folder / serie
 
+    # Debug counter
+    counter_possible_time_sync_errors = 0
+
     if not force_computation:
         try:
             df_all = pd.read_csv(out_file)
@@ -284,16 +287,17 @@ def parse_test_series(  series_data,
             f.seek(0, 0)
 
             # tmp log
+            first_measure = True        # Flag for the first time we measure Tround
             nrg_log = []
             lat_log = []
             counter = 2* (n_slots + 1)  # number of lines with useful information to extract
-            t_ref_error = 0             # abort if there might be an error of t_ref update
-            sched_missed_counter = 0    # number of times the node missed the control packet
-                                        # -> abort scanning after twice: (T,E) values may be wrong
+            missed_error = 0            # number of times the node missed the control packet of a slot
+                                        # -> abort scanning after twice:
+                                        # -> T,E data becomes highly unreliable
 
             # read first line
             line = f.readline()
-            while counter != 0 and line != '' and t_ref_error < 2 and sched_missed_counter < 2:
+            while counter != 0 and line != '':
                 if line[0]=='#':
                     line = f.readline()
                     continue
@@ -301,6 +305,14 @@ def parse_test_series(  series_data,
                 tmp = line[0:-1].split(',')
                 if int(tmp[2]) == node_id:
 
+                    '''
+                    `sched rcv` is printed when a node successfuly bootstrap.
+                    The rest of the message shows the control message payload.
+                    A value of `1` marks the round where the measurement is taken.
+                    If a node bootstrap in the measuring round, the measured value is irrelevant,
+                    as nodes start measuring from the start of the bootstrapping attempt.
+                    -> Discard this value.
+                    '''
                     if "sched rcv (1" in tmp[4]:
                         error_log = str(test_nb) + ' : Node ' + str(node_id) + ' bootstrapped on measured round'
                         error_log = error_log + '; discard it.'
@@ -308,11 +320,28 @@ def parse_test_series(  series_data,
                             print(error_log)
                         break
 
+                    # Count the number of rounds with a slot miss
                     if "Missed 1 slots! Binary: 1" in tmp[4]:
-                        t_ref_error += 1
+                        missed_error += 1
 
+                    # Count the number of rounds with a control miss
                     if "Schedule missed or corrupted" in tmp[4]:
-                        sched_missed_counter += 1
+                        missed_error += 1
+
+                    if missed_error >= 2:
+                        error_log = str(test_nb) + ' : Node ' + str(node_id) + ' multiple slot/control misses, data is unreliable'
+                        error_log = error_log + '; discard it.'
+                        if verbose:
+                            print(error_log)
+                        break
+
+                    if "3] Missed 1 slots! Binary: 1" in tmp[4]:
+                        counter_possible_time_sync_errors += 1
+                        error_log = str(test_nb) + ' : Node ' + str(node_id) + ' may suffer from the time sync error'
+                        error_log = error_log + '; discard it.'
+                        if verbose:
+                            print(error_log)
+                        break
 
                     if "E: " in tmp[4]:
                         (trash, nrg) = tmp[4].split('E: ')
@@ -321,8 +350,20 @@ def parse_test_series(  series_data,
                         counter -= 1
 
                     if "T: " in tmp[4]:
+                        # Check that the first measurement happens in the
+                        # correct round
+                        if first_measure:
+                            if "4] T: " in tmp[4]:
+                                # Fine
+                                first_measure = False
+                            else:
+                                # Nor fine
+                                error_log = str(test_nb) + ' : Node ' + str(node_id) + ' missed first measure round'
+                                error_log = error_log + '; discard it.'
+                                if verbose:
+                                    print(error_log)
+                                break
                         (trash, lat) = tmp[4].split('T: ')
-                        #print(line)
                         lat_log.append(int(lat))
                         counter -= 1
 
@@ -332,7 +373,8 @@ def parse_test_series(  series_data,
             if counter != 0:
                 # Data is missing! Likely, this node failed to execute correctly
                 # Discard all data from this node
-                error_log = str(test_nb) + ' : Node ' + str(node_id) + ' failed'
+                error_log = str(test_nb) + ' : Node ' + str(node_id) + ' missing some data'
+                error_log = error_log + '; discard it.'
                 if verbose:
                     print(error_log)
 
@@ -351,6 +393,13 @@ def parse_test_series(  series_data,
             else:
 
                 # double-check the values
+                '''
+                If the first measurement we have is smaller than the expected
+                length of one round, this means the node missed the round
+                where the measurement round took place (because it bootstrapped
+                very late, or simply because it failed receiving the control packet).
+                -> Discard the data from that node.
+                '''
                 T_round_1slot_theo = compute_T_round(H,N,payload,1)*1000 # in us
                 if lat_log[0] < T_round_1slot_theo:
                     # We missed the round with B slots, discard data
@@ -359,6 +408,10 @@ def parse_test_series(  series_data,
                     test_result[node_index][2] = np.nan
                     test_result[node_index][3] = np.nan
                     test_result[node_index][4] = np.nan
+                    error_log = str(test_nb) + ' : Node ' + str(node_id) + ' missed the measuring round'
+                    error_log = error_log + '; discard it.'
+                    if verbose:
+                        print(error_log)
                 else:
                     test_result[node_index][0] = nrg_log[0]         # T_on_round
                     test_result[node_index][1] = sum(nrg_log[1:])   # T_on_without_round
@@ -417,6 +470,11 @@ def parse_test_series(  series_data,
     df_all = pd.DataFrame(out_data, columns=out_data_labels)
     df_all.set_index('test_number', drop=True, inplace=True)
     df_all.to_csv(out_file)
+
+    # Debug outputs:
+    if verbose:
+        print('Number of possible time sync error: %d'
+                % counter_possible_time_sync_errors)
 
     if plot:
         plot_series(df_all,
