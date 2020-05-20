@@ -8,9 +8,23 @@
 This repository describes all the public artifacts related to the Time-Triggered Wireless Architecture project, presented in the following paper. This paper serves as reference for the sections mentioned in this file.
 
 > **Time-Triggered Wireless Architecture**  
-Romain Jacob, Licong Zhang, Marco Zimmerling, Samarjit Chakraborty, Lothar Thiele   
-Accepted to ECRTS 2020  
-[arXiv (submitted version)](https://arxiv.org/abs/2002.07491)
+Romain Jacob, Licong Zhang, Marco Zimmerling, Jan Beutel, Samarjit Chakraborty, Lothar Thiele   
+ECRTS 2020  
+[ [10.4230/LIPIcs.ECRTS.2020.19](https://doi.org/10.4230/LIPIcs.ECRTS.2020.19) ]
+[ [arXiv (submitted version)](https://arxiv.org/abs/2002.07491) ]  
+
+## How to replicate the results from the paper?
+
++ **Figure 3.**   
+The time and energy models for TTnet (Section 3.3) are implemented in Python. A Jupyter notebook is provided to present the models' APIs and produces Figure 3. See [TTnet model](#ttnet-model) for details.
++ **Table 2, Figure 8.**  
+Our TTnet implementation  (Section 3.2) is available in a dedicated repository. The raw data has been collected over multiple months on a wireless network testbed. As this is challenging to replicate, we provide the raw data we collected, as well as the processed data leading to the results in Table 2 and Figure 8. See [Reproducing the data processing](#reproducing-the-data-processing) for more details.
++ **Table 3, Figure 10.**  
+Our implementation of the TTW Scheduler (Section 4) is available in a dedicated repository. The scheduler is implemented in Matlab and requires in addition the Gurobi solver. The code contains the configuration files required to replicate the results from Table 3. See [Run the TTW scheduler](#run-the-ttw-scheduler) for details.
++ **All plots**  
+The plots presented in the paper have been generated using a Jupyter notebook which is included in this repository. See [Reproducing the plots](#reproducing-the-plots) for more details.
+
+---
 
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
